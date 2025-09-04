@@ -9,15 +9,12 @@
       "logicalColumnSource" : {
         "derivedFrom" : "PHYSICAL_COLUMNS",
         "physicalMappings" : [ {
-          "logicalTableSource" : "F1 Revenue",
+          "logicalTableSource" : "LTS1 Revenue",
           "physicalExpression" : {
             "expressionTemplate" : "%1",
             "expressionObjects" : [ "physicalColumn:MySampleSalesDatabase.STUDENT.F1 Revenue.UNITS" ]
           }
         } ]
-      },
-      "aggregation" : {
-        "rule" : "COUNT"
       }
     }, {
       "name" : "Revenue",
@@ -26,19 +23,16 @@
       "logicalColumnSource" : {
         "derivedFrom" : "PHYSICAL_COLUMNS",
         "physicalMappings" : [ {
-          "logicalTableSource" : "F1 Revenue",
+          "logicalTableSource" : "LTS1 Revenue",
           "physicalExpression" : {
             "expressionTemplate" : "%1",
             "expressionObjects" : [ "physicalColumn:MySampleSalesDatabase.STUDENT.F1 Revenue.REVENUE" ]
           }
         } ]
-      },
-      "aggregation" : {
-        "rule" : "SUM"
       }
     } ],
     "logicalTableSources" : [ {
-      "name" : "F1 Revenue",
+      "name" : "LTS1 Revenue",
       "disable" : false,
       "tableMapping" : {
         "tables" : [ "physicalTable:MySampleSalesDatabase.STUDENT.F1 Revenue" ]
@@ -48,17 +42,17 @@
       "distinctValues" : false
     } ],
     "joins" : [ {
-      "rightTable" : "logicalTable:Sample Sales BM._D1 Time",
-      "joinType" : "INNER",
-      "cardinality" : "MANY_TO_ONE",
-      "drivingTable" : "None"
-    }, {
       "rightTable" : "logicalTable:Sample Sales BM.D2 Products",
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ONE",
       "drivingTable" : "None"
     }, {
       "rightTable" : "logicalTable:Sample Sales BM.D3 Customers",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ONE",
+      "drivingTable" : "None"
+    }, {
+      "rightTable" : "logicalTable:Sample Sales BM.D1 Time",
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ONE",
       "drivingTable" : "None"
